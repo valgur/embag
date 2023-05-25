@@ -24,18 +24,12 @@ pybind_library(
         "util.h",
         "view.h",
     ],
-    # This is required to build in the manylinux image
-    linkopts = [
-        "-lstdc++",
-    ],
+    copts = ["--std=c++14"],
     visibility = ["//visibility:public"],
     deps = [
-        "@boost//:fusion",
-        "@boost//:iostreams",
-        "@boost//:spirit",
-        "@boost//:variant",
-        "@libbz2//:bz2",
-        "@liblz4//:lz4_frame",
+        "@boost//:boost",
+        "@bzip2//:bzip2",
+        "@lz4//:lz4",
     ],
 )
 
